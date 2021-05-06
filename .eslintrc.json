@@ -1,0 +1,15 @@
+{
+    "env" : {
+        "node" : true,
+        "es2021" : true
+    },
+    "extends" : [
+      "airbnb-base"
+    ],
+    "plugins" : ["import"],
+    "rules": {
+      "import/no-unresolved": 2,
+      "import/no-commonjs": 2,
+      "import/extensions": [2, "ignorePackages"]
+    }
+}
