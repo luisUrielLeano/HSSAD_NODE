@@ -1,6 +1,7 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const { port, database } = require('./config');
+import express from 'express';
+import mongoose from 'mongoose';
+import api from './routes/api.js';
+import { port, database } from './config.js';
 
 const app = express();
 
@@ -11,9 +12,7 @@ mongoose.connect(database, { useNewUrlParser: true }, (err) => {
 
 app.use(express.json());
 
-const catalogRouter = require('./routes/catalog');
-
-app.use('/', catalogRouter);
+app.use('/', api);
 app.listen(port, () => {
-  console.log(`Listening on port: ${process.env.PORT}`);
+  console.log(`Listening on port: ${port}`);
 });
