@@ -8,7 +8,7 @@ authController.signIn = async (req, res) => {
     const { user, token } = await AuthService.signIn(username, password);
     return res.status(200).json({ user, token });
   } catch (err) {
-    return res.status(err.status).json({ message: err.message });
+    return res.status(err.status).send(err.message);
   }
 };
 
