@@ -9,6 +9,9 @@ const QuestionSchema = new Schema({
   description: {
     type: String,
   },
+  positive: {
+    type: Boolean,
+  },
 });
 
 export default mongoose.model('Question', QuestionSchema);
