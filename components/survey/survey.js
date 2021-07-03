@@ -11,6 +11,10 @@ const SurveySchema = new Schema({
     type: String,
     required: [true, 'gender is required'],
   },
+  maritalStatus: {
+    type: String,
+    required: [true, 'marital status is required'],
+  },
   educationLevel: {
     type: String,
     required: [true, 'education level is required'],
@@ -24,6 +28,7 @@ const SurveySchema = new Schema({
     required: [true, 'occupation is required'],
   },
   answers: [{ type: Number }],
+  prediction: { type: String },
 });
 
 export default mongoose.model('Survey', SurveySchema);
