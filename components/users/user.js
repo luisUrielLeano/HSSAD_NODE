@@ -29,4 +29,11 @@ const UserSchema = new Schema({
   },
 });
 
+// Method to delete  unwanted properties
+UserSchema.methods.toJSON = function deleteProperties() {
+  const obj = this.toObject();
+  delete obj.password;
+  return obj;
+};
+
 export default mongoose.model('User', UserSchema);
