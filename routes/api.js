@@ -14,11 +14,13 @@ api.route('/auth')
 //= ============== User management endpoints ==================
 api.route('/user')
   .get(isAuth, asyncWrapper(userController.getAllUsers))
-  .post(asyncWrapper(userController.createUser));
-//= ============== Authentication endpoints ==================
+  .post(isAuth, asyncWrapper(userController.createUser));
+//= ============== Quiz endpoints =============================
 api.route('/quiz')
   .get(asyncWrapper(quizController.getAllQuestions));
+//= ============== Survey endpoints =============================
 api.route('/survey')
-  .post(asyncWrapper(surveyController.createSurvey));
+  .post(asyncWrapper(surveyController.createSurvey))
+  .get(isAuth, asyncWrapper(surveyController.getAllSurveys));
 
 export default api;
